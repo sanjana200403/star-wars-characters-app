@@ -74,11 +74,6 @@ Users can:
 - **Mock Authentication**:  
   - Simple login/logout functionality  
   - Uses fake credentials and a mocked JWT token  
-  - Credentials:  
-    ```
-    Username: admin
-    Password: Admin@123
-    ```  
   - Supports silent token refresh logic (mocked, no real backend)  
 - **Testing**: Integration test added to verify that the modal opens with the correct character details.
 
@@ -87,7 +82,7 @@ Users can:
 Clone the repository:
 
 ```
-git clone <your-repo-url>
+git clone https://github.com/sanjana200403/star-wars-characters-app.git
 cd starwars-app
 
 ```
