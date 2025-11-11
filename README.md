@@ -1,73 +1,113 @@
-# React + TypeScript + Vite
+🌟 Star Wars Character App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive React web application that lists Star Wars characters using the SWAPI
+ API.
 
-Currently, two official plugins are available:
+This project demonstrates skills in React, TypeScript, state management, API integration, and UI development.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🧰 Tech Stack
 
-## React Compiler
+React with functional components & hooks
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+TypeScript
 
-## Expanding the ESLint configuration
+Tailwind CSS
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+React Testing Library
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+🧑‍💻 Project Overview
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+The app fetches Star Wars characters and displays them in a responsive UI.
+Users can:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+View character cards with a random image and species-based accent color.
+
+Open a modal with detailed character information.
+
+Search characters by name.
+
+Filter characters by species, homeworld, and films.
+
+Navigate pages using pagination.
+
+Experience loading, empty, and error states gracefully.
+
+🎯 Features Implemented
+
+Fetch & Display Characters
+
+Uses /people endpoint from SWAPI
+
+Pagination implemented
+
+Handles loading and error states
+
+Character Cards
+
+Displays name and random image
+
+Species-based accent color
+
+Click to open modal for detailed info
+
+Character Details Modal
+
+Name, height (meters), mass (kg)
+
+Date added (formatted as dd-MM-yyyy)
+
+Number of films
+
+Birth year
+
+Homeworld details (name, terrain, climate, population)
+
+Search & Filters
+
+Search by name (partial match)
+
+Filter by species, homeworld, films
+
+Combined search + filter functionality
+
+Filters include predefined options + dynamic options from current page
+
+Responsiveness
+
+Works across mobile, tablet, and desktop screens
+
+Bonus / Optional
+
+Simple mock authentication implemented
+
+Filter logic and UI fully functional
+
+⚙️ How to Run the Project
+
+Clone the repository:
+
+```
+git clone <your-repo-url>
+cd starwars-app
+
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Install dependencies:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
+npm install
+```
+
+Start the development server:
+```
+npm run dev
+```
+
+Open in browser: http://localhost:5173
+
+Notes / Limitations
+
+Search only works for character names; combined with filters works as an AND operation.
+
+Mock authentication is implemented but does not connect to a real backend.
+.
