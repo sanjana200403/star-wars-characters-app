@@ -2,9 +2,15 @@ import React, { useEffect, useState } from "react";
 import { User, LogOut, LogIn, Menu, X } from "lucide-react";
 import { LoginModal } from "./LoginModal";
 import { toast, ToastContainer } from "react-toastify";
+import { jwtDecode } from "jwt-decode"; 
 import "react-toastify/dist/ReactToastify.css";
 
 const FAKE_TOKEN_KEY = "sw_token";
+
+interface TokenPayload {
+  username: string;
+  exp: number;
+}
 
 export const Header: React.FC = () => {
   const [auth, setAuth] = useState<{ username: string } | null>(null);
@@ -14,15 +20,36 @@ export const Header: React.FC = () => {
   // Load token from localStorage on mount
   useEffect(() => {
     const token = localStorage.getItem(FAKE_TOKEN_KEY);
-    if (token) setAuth(JSON.parse(token));
+    if (token) {
+      try {
+        const payload = jwtDecode<TokenPayload>(token);
+        if (payload.exp > Date.now()) {
+          setAuth({ username: payload.username });
+        } else {
+          localStorage.removeItem(FAKE_TOKEN_KEY);
+        }
+      } catch {
+        localStorage.removeItem(FAKE_TOKEN_KEY);
+      }
+    }
   }, []);
+
+  // Generate fake JWT
+  const createFakeJWT = (username: string) => {
+    const header = btoa(JSON.stringify({ alg: "HS256", typ: "JWT" }));
+    const payload = btoa(
+      JSON.stringify({ username, exp: Date.now() + 60 * 60 * 1000 }) // 1 hour expiry
+    );
+    const signature = btoa("fake-signature");
+    return `${header}.${payload}.${signature}`;
+  };
 
   // Handle login
   const handleLogin = (username: string, password: string) => {
-    if (username === "admin" && password === "admin") {
-      const token = { username };
-      localStorage.setItem(FAKE_TOKEN_KEY, JSON.stringify(token));
-      setAuth(token);
+    if (username === "Admin" && password === "Admin@123") {
+      const token = createFakeJWT(username);
+      localStorage.setItem(FAKE_TOKEN_KEY, token);
+      setAuth({ username });
       setShowLogin(false);
       toast.success("Logged in successfully!");
     } else {
@@ -133,7 +160,12 @@ export const Header: React.FC = () => {
         )}
 
         {/* Login Modal */}
-        {showLogin && <LoginModal onClose={() => setShowLogin(false)} onLogin={handleLogin} />}
+        {showLogin && (
+          <LoginModal
+            onClose={() => setShowLogin(false)}
+            onLogin={handleLogin}
+          />
+        )}
       </header>
 
       {/* Toast Container */}
