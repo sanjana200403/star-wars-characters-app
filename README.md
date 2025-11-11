@@ -66,7 +66,7 @@ Users can:
 - **Responsive UI**
   - Works across mobile, tablet, and desktop screens
 
-##  Bonus Features (Optional but Implemented)
+##  Bonus Features 
 
 - **Search**: Allows searching characters by name (partial match).  
 - **Filters**: Filter characters by species, homeworld, or films.  
