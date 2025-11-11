@@ -1,88 +1,61 @@
-🌟 Star Wars Character App
+# Star Wars Character App
 
-A responsive React web application that lists Star Wars characters using the SWAPI
- API.
-
+A responsive React web application that lists Star Wars characters using the SWAPI API.
+ 
 This project demonstrates skills in React, TypeScript, state management, API integration, and UI development.
 
-🧰 Tech Stack
+## Tech Stack
 
-React with functional components & hooks
+- React with functional components & hooks
+- TypeScript
+- Tailwind CSS
+- React Testing Library
 
-TypeScript
-
-Tailwind CSS
-
-React Testing Library
-
-🧑‍💻 Project Overview
+## 🧑‍💻 Project Overview
 
 The app fetches Star Wars characters and displays them in a responsive UI.
 Users can:
 
-View character cards with a random image and species-based accent color.
+- View character cards with a random image and species-based accent color.
+- Open a modal with detailed character information.
+- Search characters by name.
+- Filter characters by species, homeworld, and films.
+- Navigate pages using pagination.
+- Experience loading, empty, and error states gracefully.
 
-Open a modal with detailed character information.
+## 🎯 Features Implemented
 
-Search characters by name.
+### Fetch & Display Characters
+- Uses /people endpoint from SWAPI
+- Pagination implemented
+- Handles loading and error states
 
-Filter characters by species, homeworld, and films.
+### Character Cards
+- Displays name and random image
+- Species-based accent color
+- Click to open modal for detailed info
 
-Navigate pages using pagination.
+### Character Details Modal
+- Name, height (meters), mass (kg)
+- Date added (formatted as dd-MM-yyyy)
+- Number of films
+- Birth year
+- Homeworld details (name, terrain, climate, population)
 
-Experience loading, empty, and error states gracefully.
+### Search & Filters
+- Search by name (partial match)
+- Filter by species, homeworld, films
+- Combined search + filter functionality
+- Filters include predefined options + dynamic options from current page
 
-🎯 Features Implemented
+### Responsiveness
+- Works across mobile, tablet, and desktop screens
 
-Fetch & Display Characters
+## Bonus / Optional
+- Simple mock authentication implemented
+- Filter logic and UI fully functional
 
-Uses /people endpoint from SWAPI
-
-Pagination implemented
-
-Handles loading and error states
-
-Character Cards
-
-Displays name and random image
-
-Species-based accent color
-
-Click to open modal for detailed info
-
-Character Details Modal
-
-Name, height (meters), mass (kg)
-
-Date added (formatted as dd-MM-yyyy)
-
-Number of films
-
-Birth year
-
-Homeworld details (name, terrain, climate, population)
-
-Search & Filters
-
-Search by name (partial match)
-
-Filter by species, homeworld, films
-
-Combined search + filter functionality
-
-Filters include predefined options + dynamic options from current page
-
-Responsiveness
-
-Works across mobile, tablet, and desktop screens
-
-Bonus / Optional
-
-Simple mock authentication implemented
-
-Filter logic and UI fully functional
-
-⚙️ How to Run the Project
+## How to Run the Project
 
 Clone the repository:
 
@@ -104,10 +77,3 @@ npm run dev
 ```
 
 Open in browser: http://localhost:5173
-
-Notes / Limitations
-
-Search only works for character names; combined with filters works as an AND operation.
-
-Mock authentication is implemented but does not connect to a real backend.
-.
