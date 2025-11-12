@@ -59,7 +59,7 @@ Users can:
   - Uses fake credentials and a mocked JWT token
   - Credentials:
     ```
-    Username: admin
+    Username: Admin
     Password: Admin@123
     ```
 
