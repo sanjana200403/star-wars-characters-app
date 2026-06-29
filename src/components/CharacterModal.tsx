@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+
+declare function cxorbi(event: string, label: string): void;
 import Modal from "react-modal";
 import { fetchJson } from "../utils/api";
 import { cmToMeters, formatDate } from "../utils/helpers"; 
@@ -18,6 +20,7 @@ export const CharacterModal: React.FC<{
 
   useEffect(() => {
     if (!person) return;
+    cxorbi('track', 'popup');
     let mounted = true;
 
     const loadData = async () => {

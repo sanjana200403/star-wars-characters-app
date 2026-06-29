@@ -54,6 +54,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ onClose, onLogin }) => {
           {error && <p className="text-red-400 text-sm">{error}</p>}
 
           <button
+            id="login-btn"
             type="submit"
             className="bg-cyan-500 hover:bg-cyan-600 transition rounded-md py-2 text-white font-medium"
           >

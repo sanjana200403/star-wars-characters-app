@@ -4,6 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Star Wars Characters</title>
+    <script>
+  (function (w, d) {
+    w._cxorbi = w._cxorbi || [];
+    w.cxorbi = w.cxorbi || function () { w._cxorbi.push(arguments); };
+
+    // Start Ask immediately. If you gate analytics behind a cookie banner,
+    // remove requireConsent:false and call cxorbi('grantConsent') after accept.
+    w.cxorbi('init', '6a393b521f787cdc70e9b866pcqhdcmzjkk', {
+      apiUrl: 'https://api.cxorbi.com/api',
+      requireConsent: false
+    });
+
+    var s = d.createElement('script');
+    s.async = true;
+    s.src = 'https://cdn.cxorbi.com/sdk/cxorbi.js';
+    d.head.appendChild(s);
+  })(window, document);
+</script>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="https://i.pinimg.com/736x/40/09/a8/4009a86bdb7e9f70b7cdb46da803246b.jpg" sizes="32x32" />
